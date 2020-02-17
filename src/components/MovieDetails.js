@@ -1,6 +1,5 @@
 import React,{ useState, useEffect} from 'react'
 import axios from 'axios'
-import CardDetails from '../components/CardDetails'
 const MovieDetails = (props) => {
 
 	const [detail, setDetails] = useState([])

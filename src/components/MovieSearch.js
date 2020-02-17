@@ -4,7 +4,7 @@ import Card from '../components/Card'
 const MovieSearch = () => {
 	const [movie, setMovie] = useState([])
 	const [search, setSearch] = useState('')
-	const [load, setLoading] = useState(false)
+	
 
 	//Api call for movie search
 	const onChange = (e) => {
@@ -15,12 +15,10 @@ const MovieSearch = () => {
 				if (res.data.Search) {
 					console.log(res.data.Search)
 					setMovie(res.data.Search)
-					setLoading(true)
-
 				}
 			}).catch(err => {
 				console.log(err)
-				setLoading(true)
+				
 			})
 
 	}
@@ -50,8 +48,7 @@ const MovieSearch = () => {
 					</div>
 				</div>
 			</div>
-			<div style={{display:"flex",flexDirection:"column"}}>
-			{movie.map((data, index) => (
+			{movie.length >0 ? movie.map((data, index) => (
 				<Card
 					key={index}
 					title={data.Title}
@@ -60,9 +57,7 @@ const MovieSearch = () => {
 					imdb={data.imdbID}
 					type={data.Type}
 				/>
-			))}
-			</div>
-
+			)):<p className="text-center p-2">No record found</p>}
 		</div>
 	)
 }
