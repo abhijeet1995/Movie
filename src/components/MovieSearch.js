@@ -22,11 +22,17 @@ const MovieSearch = () => {
 			})
 
 	}
+
+
+
+
+
 	return (
 		<div>
 			<h4 className="text-center p-5">Enter Movie Title</h4>
 			<div className="container">
-				<div className="row">
+			
+	<div className="row">
 					<div className="col-md-3">
 
 					</div>
@@ -43,21 +49,25 @@ const MovieSearch = () => {
 							</div>
 						</form>
 					</div>
-					<div className="col-md-3">
-
-					</div>
 				</div>
 			</div>
-			{movie.length >0 ? movie.map((data, index) => (
-				<Card
-					key={index}
-					title={data.Title}
-					year={data.Year}
-					poster={data.Poster}
-					imdb={data.imdbID}
-					type={data.Type}
-				/>
-			)):<p className="text-center p-2">No record found</p>}
+			<div className="container">
+		    <div className="row">
+				{
+					movie.length > 0 ? movie.map((data, index) => (
+						<Card
+						    
+							key={index}
+							title={data.Title}
+							year={data.Year}
+							poster={data.Poster}
+							imdb={data.imdbID}
+							type={data.Type}
+						/>
+					)) : <p className="text-center p-2">No record found</p>
+				}
+			</div>
+			</div>
 		</div>
 	)
 }
